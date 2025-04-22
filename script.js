@@ -1,6 +1,6 @@
 // Supabase Configuration - Replace with your project URL and anon key
 const SUPABASE_URL = 'https://idokysoyusnmjagpvtzb.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlkb2t5c295dXNubWphZ3B2dHpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUzMzg0OTgsImV4cCI6MjA2MDkxNDQ5OH0.LNb2GXC-jwbEpGi_LueGRYSgk9KQq0fDgBbO4NDVwmM';
+const SUPABASE_ANON_KEY = 'find a way to put JWT';
 const supabase = supabaseClient.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // DOM Elements
