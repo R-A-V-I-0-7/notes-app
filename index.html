@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperNotes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script>
+        const supabaseClient = window.supabase;
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Landing Page -->
+        <div id="landing-container" class="landing-container">
+            <div class="landing-hero">
+                <div class="landing-content">
+                    <h1>SuperNotes</h1>
+                    <p class="tagline">Not just another notes app - it's your digital brain, supercharged! 🚀</p>
+                    <div class="description">
+                        <p>Organize thoughts, boost productivity, and unleash your creativity with a note-taking experience unlike anything you've seen before.</p>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎨</span>
+                            <span>Color code & organize with style</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔄</span>
+                            <span>Real-time sync across devices</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🌓</span>
+                            <span>Eye-pleasing dark mode</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔍</span>
+                            <span>Lightning-fast search</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✨</span>
+                            <span>Drag & drop organization</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📱</span>
+                            <span>Works offline & on mobile</span>
+                        </div>
+                    </div>
+                    <div class="landing-actions">
+                        <button id="guest-access-btn" class="btn btn-secondary btn-pop">
+                            <span class="btn-text">Try Instantly</span>
+                            <span class="btn-icon">👋</span>
+                        </button>
+                        <button id="show-auth-btn" class="btn btn-primary btn-pop">
+                            <span class="btn-text">Sign Up / Login</span>
+                            <span class="btn-icon">🔐</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="landing-image">
+                    <div class="note-preview pikachu">
+                        <h3>Project Ideas</h3>
+                        <p>Build AR app for virtual home tours</p>
+                        <div class="note-tag">Ideas</div>
+                    </div>
+                    <div class="note-preview bulbasaur">
+                        <h3>Shopping List</h3>
+                        <p>Milk, eggs, bread, fruits, coffee</p>
+                        <div class="note-tag">Personal</div>
+                    </div>
+                    <div class="note-preview charmander">
+                        <h3>Team Meeting Notes</h3>
+                        <p>Discuss Q4 goals and new feature roadmap</p>
+                        <div class="note-tag">Work</div>
+                    </div>
+                </div>
+            </div>
+            <div class="theme-toggle landing-theme-toggle">
+                <button id="theme-toggle-landing" aria-label="Toggle dark/light mode">
+                    <span class="icon">🌙</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Authentication Forms -->
+        <div id="auth-container" class="auth-container hidden">
+            <div class="auth-header">
+                <h1>SuperNotes</h1>
+                <div class="auth-actions">
+                    <button id="back-to-landing" class="btn btn-text">Back</button>
+                    <div class="theme-toggle">
+                        <button id="theme-toggle-btn" aria-label="Toggle dark/light mode">
+                            <span class="icon">🌙</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="auth-tabs">
+                <button id="login-tab" class="auth-tab active">Login</button>
+                <button id="signup-tab" class="auth-tab">Sign Up</button>
+            </div>
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-pop">
+                    <span class="btn-text">Login</span>
+                    <span class="btn-icon">🚀</span>
+                </button>
+                <p id="login-error" class="error-message"></p>
+            </form>
+            <form id="signup-form" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required minlength="6">
+                </div>
+                <button type="submit" class="btn btn-primary btn-pop">
+                    <span class="btn-text">Sign Up</span>
+                    <span class="btn-icon">✨</span>
+                </button>
+                <p id="signup-error" class="error-message"></p>
+            </form>
+            <div class="auth-separator">
+                <span>or</span>
+            </div>
+            <button id="guest-login-btn" class="btn btn-secondary btn-pop">
+                <span class="btn-text">Continue as Guest</span>
+                <span class="btn-icon">👋</span>
+            </button>
+        </div>
+
+        <!-- Main App Content -->
+        <div id="app-content" class="app-content hidden">
+            <header class="app-header">
+                <div class="header-left">
+                    <h1>SuperNotes</h1>
+                    <div id="user-status" class="user-status">Guest Mode</div>
+                </div>
+                <div class="header-center">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search notes...">
+                    </div>
+                    <div class="category-filter">
+                        <select id="category-filter">
+                            <option value="">✨ All Categories</option>
+                            <option value="Work">💼 Work</option>
+                            <option value="Personal">🏠 Personal</option>
+                            <option value="Ideas">💡 Ideas</option>
+                            <option value="Study">📚 Study</option>
+                            <option value="Health">🍎 Health</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button id="export-btn" class="btn btn-icon-only" aria-label="Export notes" title="Export notes">
+                        <span class="icon">📥</span>
+                    </button>
+                    <button id="theme-toggle-app" class="btn btn-icon-only" aria-label="Toggle dark/light mode" title="Toggle theme">
+                        <span class="icon">🌙</span>
+                    </button>
+                    <button id="logout-btn" class="btn btn-outline">Back to Home</button>
+                    <button id="create-note-btn" class="btn btn-primary btn-pop">
+                        <span class="btn-text">+ New Note</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Notes Container -->
+            <div id="notes-container" class="notes-container">
+                <!-- Notes will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Note Modal -->
+        <div id="note-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Create Note</h2>
+                    <button id="close-modal" class="close-btn">&times;</button>
+                </div>
+                <form id="note-form">
+                    <input type="hidden" id="note-id">
+                    <div class="form-group">
+                        <label for="note-title">Title</label>
+                        <input type="text" id="note-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-content">Content</label>
+                        <textarea id="note-content" rows="6" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="note-category">Category</label>
+                            <select id="note-category" required>
+                                <option value="Work">💼 Work</option>
+                                <option value="Personal">🏠 Personal</option>
+                                <option value="Ideas" selected>💡 Ideas</option>
+                                <option value="Study">📚 Study</option>
+                                <option value="Health">🍎 Health</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Theme</label>
+                            <div class="pokemon-picker">
+                                <div class="pokemon-option" data-color="pikachu" title="Pikachu (Electric)">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu">
+                                </div>
+                                <div class="pokemon-option" data-color="bulbasaur" title="Bulbasaur (Grass)">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur">
+                                </div>
+                                <div class="pokemon-option" data-color="charmander" title="Charmander (Fire)">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander">
+                                </div>
+                                <div class="pokemon-option" data-color="squirtle" title="Squirtle (Water)">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle">
+                                </div>
+                                <div class="pokemon-option" data-color="jigglypuff" title="Jigglypuff (Fairy)">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png" alt="Jigglypuff">
+                                </div>
+                            </div>
+                            <input type="hidden" id="note-color" value="pikachu">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-pop">
+                            <span class="btn-text">Save Note</span>
+                            <span class="btn-icon">💾</span>
+                        </button>
+                        <button type="button" id="delete-note-btn" class="btn btn-danger btn-pop hidden">
+                            <span class="btn-text">Delete</span>
+                            <span class="btn-icon">🗑️</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete Confirmation Modal -->
+        <div id="delete-modal" class="modal">
+            <div class="modal-content confirmation-modal">
+                <div class="modal-header">
+                    <h2>Delete Note</h2>
+                    <button id="close-delete-modal" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this note?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirm-delete" class="btn btn-danger btn-pop">
+                        <span class="btn-text">Delete</span>
+                        <span class="btn-icon">🗑️</span>
+                    </button>
+                    <button id="cancel-delete" class="btn btn-outline">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app"></div>
+
+    <!-- Background animation canvas -->
+    <canvas id="background-canvas"></canvas>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

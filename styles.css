@@ -1,0 +1,2134 @@
+:root {
+    /* Light Theme Variables */
+    --background: #f8f9fa;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --primary-color: #6366f1;
+    --primary-color-light: #818cf8;
+    --secondary-color: #fbbf24;
+    --card-bg: #ffffff;
+    --card-border: #eaeaea;
+    --input-bg: #ffffff;
+    --input-border: #d1d5db;
+    --modal-bg: #ffffff;
+    --btn-hover: #4f46e5;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --secondary-btn-bg: #f3f4f6;
+    --secondary-btn-hover: #e5e7eb;
+    --outline-btn-color: #4b5563;
+    --outline-btn-hover: #f3f4f6;
+    
+    /* Accent colors for UI elements */
+    --accent-color: #6366f1;
+    --accent-color-rgb: 99, 102, 241;
+    --accent-light: #e0e7ff;
+    --surface: #ffffff;
+    --surface-alt: #f3f4f6;
+    
+    /* Pokemon Theme Colors */
+    --pikachu-color: #F7D02C;
+    --pikachu-light: #FFDC5D;
+    --pikachu-bg: #FFF8E6;
+    --pikachu-text: #B4930A;
+    
+    --bulbasaur-color: #7AC74C;
+    --bulbasaur-light: #9DDE76;
+    --bulbasaur-bg: #F1FFEA;
+    --bulbasaur-text: #3A703A;
+    
+    --charmander-color: #EE8130;
+    --charmander-light: #FFA75F;
+    --charmander-bg: #FFF1EA;
+    --charmander-text: #9B3A04;
+    
+    --squirtle-color: #6390F0;
+    --squirtle-light: #92B3FF;
+    --squirtle-bg: #EEF4FF;
+    --squirtle-text: #1A3A91;
+    
+    --jigglypuff-color: #FDB8E9;
+    --jigglypuff-light: #FFCAF2;
+    --jigglypuff-bg: #FFF5FB;
+    --jigglypuff-text: #A0377A;
+    
+    /* Note Colors */
+    --color-blue: #bfdbfe;
+    --color-green: #bbf7d0;
+    --color-yellow: #fef08a;
+    --color-red: #fecaca;
+    --color-purple: #ddd6fe;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+}
+
+[data-theme="dark"] {
+    --background: #1f2937;
+    --text-primary: #f3f4f6;
+    --text-secondary: #d1d5db;
+    --primary-color: #818cf8;
+    --primary-color-light: #a5b4fc;
+    --secondary-color: #fbbf24;
+    --card-bg: #2d3748;
+    --card-border: #4b5563;
+    --input-bg: #374151;
+    --input-border: #4b5563;
+    --modal-bg: #374151;
+    --btn-hover: #6366f1;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.3);
+    --secondary-btn-bg: #374151;
+    --secondary-btn-hover: #4b5563;
+    --outline-btn-color: #d1d5db;
+    --outline-btn-hover: #374151;
+    
+    /* Accent colors for UI elements */
+    --accent-color: #818cf8;
+    --accent-color-rgb: 129, 140, 248;
+    --accent-light: #3b4286;
+    --surface: #2d3748;
+    --surface-alt: #374151;
+    
+    /* Pokemon Theme Colors - Darker versions */
+    --pikachu-color: #D4AF00;
+    --pikachu-light: #E6C332;
+    --pikachu-bg: #3D3825;
+    --pikachu-text: #E6C332;
+    
+    --bulbasaur-color: #4E9F25;
+    --bulbasaur-light: #6CC13E;
+    --bulbasaur-bg: #263D21;
+    --bulbasaur-text: #86de5d;
+    
+    --charmander-color: #C35A10;
+    --charmander-light: #E47730;
+    --charmander-bg: #3D2921;
+    --charmander-text: #ff9f69;
+    
+    --squirtle-color: #3B62B7;
+    --squirtle-light: #5584E9;
+    --squirtle-bg: #21283D;
+    --squirtle-text: #77a9ff;
+    
+    --jigglypuff-color: #C485B6;
+    --jigglypuff-light: #E9A7D7;
+    --jigglypuff-bg: #3D2137;
+    --jigglypuff-text: #ffb7e8;
+    
+    /* Note Colors in Dark Mode - slightly dimmed */
+    --color-blue: #93c5fd;
+    --color-green: #86efac;
+    --color-yellow: #fde68a;
+    --color-red: #fca5a5;
+    --color-purple: #c4b5fd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: var(--space-md);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Landing Page Styles */
+.landing-container {
+    max-width: 1280px;
+    margin: var(--space-xl) auto;
+    animation: slideUp 1s ease-out;
+}
+
+.landing-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xxl);
+    margin-bottom: var(--space-xl);
+    min-height: 80vh;
+    padding: var(--space-md);
+}
+
+.landing-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.landing-content h1 {
+    font-size: 4rem;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+}
+
+.landing-content .tagline {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.description {
+    margin-bottom: var(--space-xl);
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    position: relative;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.feature-item:hover {
+    background-color: rgba(99, 102, 241, 0.05);
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+.landing-actions {
+    display: flex;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.landing-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    position: relative;
+    perspective: 1000px;
+}
+
+.note-preview {
+    background-color: var(--card-bg);
+    padding: var(--space-lg);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    border-top: 5px solid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: floatNotes 8s infinite ease-in-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.note-preview::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    z-index: 1;
+    transform: translateZ(20px);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    border-radius: 50%;
+}
+
+.note-preview.pikachu {
+    border-color: var(--pikachu-color);
+    background-image: linear-gradient(to bottom right, var(--pikachu-bg), var(--card-bg) 80%);
+}
+
+.note-preview.bulbasaur {
+    border-color: var(--bulbasaur-color);
+    background-image: linear-gradient(to bottom right, var(--bulbasaur-bg), var(--card-bg) 80%);
+}
+
+.note-preview.charmander {
+    border-color: var(--charmander-color);
+    background-image: linear-gradient(to bottom right, var(--charmander-bg), var(--card-bg) 80%);
+}
+
+.note-preview.squirtle {
+    border-color: var(--squirtle-color);
+    background-image: linear-gradient(to bottom right, var(--squirtle-bg), var(--card-bg) 80%);
+}
+
+.note-preview.jigglypuff {
+    border-color: var(--jigglypuff-color);
+    background-image: linear-gradient(to bottom right, var(--jigglypuff-bg), var(--card-bg) 80%);
+}
+
+.note-preview.pikachu::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png');
+    border-color: var(--pikachu-color);
+    box-shadow: 0 0 10px var(--pikachu-light);
+}
+
+.note-preview.bulbasaur::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png');
+    border-color: var(--bulbasaur-color);
+    box-shadow: 0 0 10px var(--bulbasaur-light);
+}
+
+.note-preview.charmander::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png');
+    border-color: var(--charmander-color);
+    box-shadow: 0 0 10px var(--charmander-light);
+}
+
+.note-preview.squirtle::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png');
+    border-color: var(--squirtle-color);
+    box-shadow: 0 0 10px var(--squirtle-light);
+}
+
+.note-preview.jigglypuff::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png');
+    border-color: var(--jigglypuff-color);
+    box-shadow: 0 0 10px var(--jigglypuff-light);
+}
+
+.note-preview:nth-child(1) {
+    animation-delay: 0s;
+    z-index: 3;
+    right: 0;
+    top: 0;
+    transform-origin: center bottom;
+}
+
+.note-preview:nth-child(2) {
+    animation-delay: 1.5s;
+    z-index: 2;
+    right: 20px;
+    top: 30px;
+    transform-origin: center bottom;
+}
+
+.note-preview:nth-child(3) {
+    animation-delay: 3s;
+    z-index: 1;
+    right: 40px;
+    top: 60px;
+    transform-origin: center bottom;
+}
+
+.note-preview h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.note-preview p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.note-tag {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.landing-theme-toggle {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    z-index: 10;
+}
+
+/* Button Styles */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(99, 102, 241, 0.2);
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-btn-bg);
+    color: var(--text-primary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-btn-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(239, 68, 68, 0.2);
+}
+
+.btn-danger:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+.btn-text {
+    background: transparent;
+    color: var(--text-secondary);
+    padding: var(--space-sm);
+}
+
+.btn-text:hover {
+    color: var(--text-primary);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--outline-btn-color);
+    color: var(--outline-btn-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--outline-btn-hover);
+    transform: translateY(-2px);
+}
+
+.btn-icon-only {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-alt);
+    color: var(--text-primary);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    margin: 0 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-icon-only:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-icon-only:active {
+    transform: translateY(-1px);
+}
+
+.btn-icon-only .icon {
+    font-size: 1.3rem;
+}
+
+.btn-icon-only::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-icon-only:hover::after {
+    opacity: 1;
+}
+
+.btn-pop {
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pop:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.btn-pop:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.btn-pop::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.btn-pop:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+    margin-left: var(--space-xs);
+    opacity: 0.9;
+}
+
+.btn-text {
+    display: inline-block;
+}
+
+/* Authentication Styles */
+.auth-container {
+    max-width: 450px;
+    margin: var(--space-xl) auto;
+    background-color: var(--card-bg);
+    padding: var(--space-xl);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease;
+}
+
+.auth-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xl);
+}
+
+.auth-header h1 {
+    font-size: 2rem;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.auth-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: var(--space-xl);
+    border-bottom: 2px solid var(--card-border);
+}
+
+.auth-tab {
+    padding: var(--space-md) var(--space-lg);
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.auth-tab.active {
+    color: var(--primary-color);
+}
+
+.auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    animation: slideRight 0.3s ease;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        margin-bottom: var(--space-md);
+    }
+}
+
+/* Separate input/select height from textarea */
+input, select {
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-family: inherit;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+    height: 2.5rem; /* Fixed height for inputs and selects */
+}
+
+textarea {
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-family: inherit;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+}
+
+/* Remove duplicate focus styles */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.15);
+    transform: translateY(-2px);
+}
+
+/* Mobile styles for form inputs */
+@media (max-width: 768px) {
+    input, select, textarea {
+        padding: 0.85rem;
+        font-size: 16px; /* Prevent zoom on mobile */
+    }
+    
+    textarea {
+        min-height: 80px;
+    }
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: var(--space-sm);
+}
+
+.auth-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-secondary);
+    margin: var(--space-xl) 0;
+}
+
+.auth-separator::before,
+.auth-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.auth-separator span {
+    padding: 0 var(--space-md);
+}
+
+.user-status {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: var(--space-xs);
+}
+
+/* App Content Styles */
+.app-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: var(--space-md);
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: var(--space-xl);
+}
+
+.header-left h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.header-center {
+    display: flex;
+    gap: var(--space-lg);
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+.search-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+.search-container input {
+    width: 100%;
+    padding-left: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23666'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 0.75rem center;
+    background-size: 1.25rem;
+}
+
+.category-filter {
+    position: relative;
+    margin-left: var(--space-md);
+    min-width: 220px;
+    z-index: 10;
+}
+
+.category-filter select {
+    width: 100%;
+    border-radius: 12px;
+    padding: 10px 40px 10px 45px;
+    border: 1px solid var(--card-border);
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: var(--shadow);
+    font-weight: 500;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    letter-spacing: 0.25px;
+    font-size: 0.95rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 42px;
+}
+
+.category-filter select:hover {
+    background-color: var(--surface-alt);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.category-filter select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.15);
+    background-color: var(--card-bg);
+}
+
+.category-filter::before {
+    content: "📂";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+    font-size: 1.1rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.category-filter:hover::before {
+    opacity: 1;
+}
+
+/* Category options styling */
+.category-filter select option {
+    padding: 10px;
+    background-color: var(--card-bg);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+/* Add a custom dropdown arrow with transition */
+.category-filter::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--text-secondary);
+    transition: transform 0.3s ease;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.category-filter select:focus + .category-filter::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Add Pokemon-themed styling to the form select elements */
+.form-group select {
+    width: 100%;
+    border-radius: 15px;
+    padding: 10px 30px 10px 12px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 14px;
+    font-size: 0.95rem;
+}
+
+.form-group select:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.2);
+}
+
+.header-right {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+}
+
+/* Mobile styles for the category dropdown */
+@media (max-width: 768px) {
+    .header-center {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .category-filter {
+        margin-left: 0;
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .category-filter select {
+        width: 100%;
+    }
+}
+
+/* Notes Container Styles */
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+.note-card {
+    --glow-x: 50%;
+    --glow-y: 50%;
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    padding: var(--space-xl);
+    box-shadow: var(--shadow);
+    border-top: 5px solid;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    animation: fadeIn 0.5s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    backface-visibility: hidden;
+}
+
+/* Inner glow effect */
+.note-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--glow-x) var(--glow-y), 
+                 rgba(255, 255, 255, 0.15) 0%, 
+                 rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.note-card:hover::before {
+    opacity: 1;
+}
+
+/* Pokemon sprite */
+.note-card::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    z-index: 2;
+    transform: translateZ(20px);
+}
+
+.note-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+.note-card:active {
+    transform: translateY(-5px) rotateX(2deg);
+}
+
+.note-card:hover::after {
+    opacity: 1;
+    transform: translateZ(30px) scale(1.2);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+/* More defined bounce animation for better effect */
+@keyframes bounce {
+    0% { transform: translateY(0) translateZ(20px); }
+    50% { transform: translateY(-8px) translateZ(30px) scale(1.1); }
+    100% { transform: translateY(0) translateZ(20px); }
+}
+
+/* Styles for different Pokemon */
+.note-card.pikachu {
+    border-color: var(--pikachu-color);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--pikachu-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.pikachu::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png');
+}
+
+.note-card.pikachu:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(247, 208, 44, 0.3);
+}
+
+.note-card.pikachu:hover::after {
+    animation: bounce 0.8s ease-in-out infinite;
+}
+
+.note-card.bulbasaur {
+    border-color: var(--bulbasaur-color);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--bulbasaur-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.bulbasaur::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png');
+}
+
+.note-card.bulbasaur:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(122, 199, 76, 0.3);
+}
+
+.note-card.bulbasaur:hover::after {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.note-card.charmander {
+    border-color: var(--charmander-color);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--charmander-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.charmander::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png');
+}
+
+.note-card.charmander:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(238, 129, 48, 0.3);
+}
+
+.note-card.charmander:hover::after {
+    animation: bounce 0.9s ease-in-out infinite;
+}
+
+.note-card.squirtle {
+    border-color: var(--squirtle-color);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--squirtle-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.squirtle::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png');
+}
+
+.note-card.squirtle:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(99, 144, 240, 0.3);
+}
+
+.note-card.jigglypuff {
+    border-color: var(--jigglypuff-light);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--jigglypuff-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.jigglypuff::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png');
+}
+
+.note-card.jigglypuff:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15), 0 0 20px rgba(253, 184, 233, 0.3);
+}
+
+.note-card.jigglypuff:hover::after {
+    animation: bounce 1.2s ease-in-out infinite;
+}
+
+/* Improve mobile visibility and responsiveness */
+@media (max-width: 768px) {
+    .note-card::after {
+        opacity: 1;  /* Full opacity on mobile */
+        width: 55px;
+        height: 55px;
+        bottom: 5px;
+        right: 5px;
+        transform: translateZ(10px); /* Reduced 3D effect on mobile */
+    }
+    
+    .note-card:hover {
+        transform: translateY(-5px); /* Less dramatic movement on mobile */
+    }
+    
+    .note-card:hover::after {
+        transform: scale(1.1);
+        animation: none; /* Disable animation on mobile for better performance */
+    }
+}
+
+.note-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    word-break: break-word;
+    position: relative;
+    z-index: 2;
+    transform: translateZ(10px);
+    transition: transform 0.3s ease;
+}
+
+.note-card:hover .note-title {
+    transform: translateZ(25px);
+}
+
+.note-content {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    transform: translateZ(5px);
+    transition: transform 0.3s ease;
+}
+
+.note-card:hover .note-content {
+    transform: translateZ(15px);
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+    transform: translateZ(5px);
+    transition: transform 0.3s ease;
+}
+
+.note-card:hover .note-footer {
+    transform: translateZ(15px);
+}
+
+.note-meta {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.note-type {
+    font-size: 0.75rem;
+    position: relative;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 0.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    color: var(--text-primary);
+}
+
+.note-type::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--card-bg);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.pikachu .note-type {
+    color: var(--pikachu-text, #B4930A);
+    background: rgba(247, 208, 44, 0.2);
+}
+
+.bulbasaur .note-type {
+    color: var(--bulbasaur-text, #3A703A);
+    background: rgba(122, 199, 76, 0.2);
+}
+
+.charmander .note-type {
+    color: var(--charmander-text, #9B3A04);
+    background: rgba(238, 129, 48, 0.2);
+}
+
+.squirtle .note-type {
+    color: var(--squirtle-text, #1A3A91);
+    background: rgba(99, 144, 240, 0.2);
+}
+
+.jigglypuff .note-type {
+    color: var(--jigglypuff-text, #A0377A);
+    background: rgba(253, 184, 233, 0.2);
+}
+
+.note-category {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 0.25rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.note-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Lighter overlay for better aesthetics */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: var(--space-md);
+    overflow-y: auto;
+    backdrop-filter: blur(5px); /* Add blur effect to background */
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--modal-bg);
+    border-radius: 1.2rem;
+    padding: var(--space-md) var(--space-lg) var(--space-md) var(--space-lg);
+    width: 90%;
+    max-width: 580px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid var(--card-border);
+    transform: translateZ(0);
+}
+
+/* Ensure scrollbar looks good */
+.modal-content::-webkit-scrollbar {
+    width: 4px; /* Slimmer scrollbar */
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    margin: 4px 0; /* Shorter track */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color-light);
+    border-radius: 8px;
+}
+
+.confirmation-modal {
+    max-width: 450px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+    position: sticky;
+    top: 0;
+    background-color: var(--modal-bg);
+    z-index: 10;
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.modal-header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-body {
+    margin-bottom: var(--space-md);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-md);
+    position: sticky;
+    bottom: 0;
+    background-color: var(--modal-bg);
+    padding-top: var(--space-sm);
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.close-btn:hover {
+    color: var(--text-primary);
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: rotate(90deg);
+}
+
+.close-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(var(--accent-color-rgb), 0.1);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover::after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.close-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.3);
+    color: var(--text-primary);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--card-border);
+}
+
+.form-actions .btn {
+    min-width: 110px;
+    position: relative;
+    overflow: hidden;
+    padding: 0.6rem 1rem;
+}
+
+.btn-primary, .btn-danger, .btn-outline {
+    padding: 0.6rem 1.2rem;
+}
+
+/* Button ripple effect */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
+}
+
+/* Color Picker */
+.color-picker {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
+}
+
+.color-option {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color-option:hover {
+    transform: scale(1.15);
+}
+
+.color-option.selected {
+    box-shadow: 0 0 0 2px var(--primary-color);
+    transform: scale(1.1);
+}
+
+.color-option[data-color="blue"] { background-color: var(--color-blue); }
+.color-option[data-color="green"] { background-color: var(--color-green); }
+.color-option[data-color="yellow"] { background-color: var(--color-yellow); }
+.color-option[data-color="red"] { background-color: var(--color-red); }
+.color-option[data-color="purple"] { background-color: var(--color-purple); }
+
+/* Theme Toggle */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle button {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-alt);
+    color: var(--text-primary);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    overflow: hidden;
+}
+
+.theme-toggle button:hover {
+    transform: translateY(-3px) rotate(15deg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Empty State */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-xxl);
+    color: var(--text-secondary);
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-md);
+}
+
+.empty-state-emoji {
+    font-size: 4rem;
+    animation: bounce-simple 1.5s ease infinite alternate;
+}
+
+@keyframes bounce-simple {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.note-preview.pikachu:hover::after {
+    animation: bounce 0.8s ease infinite;
+}
+
+.note-preview.bulbasaur:hover::after {
+    animation: bounce 1s ease infinite;
+}
+
+.note-preview.charmander:hover::after {
+    animation: bounce 0.9s ease infinite;
+}
+
+.note-preview.squirtle:hover::after {
+    animation: bounce 1.1s ease infinite;
+}
+
+.note-preview.jigglypuff:hover::after {
+    animation: bounce 1.2s ease infinite;
+}
+
+.note-card.pikachu:hover::after {
+    animation: bounce 0.8s ease infinite;
+}
+
+.note-card.bulbasaur:hover::after {
+    animation: bounce 1s ease infinite;
+}
+
+.note-card.charmander:hover::after {
+    animation: bounce 0.9s ease infinite;
+}
+
+.note-card.squirtle:hover::after {
+    animation: bounce 1.1s ease infinite;
+}
+
+.note-card.jigglypuff:hover::after {
+    animation: bounce 1.2s ease infinite;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+@keyframes floatNotes {
+    0% { 
+        transform: translateY(0) rotate(0deg); 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    50% { 
+        transform: translateY(-20px) rotate(2deg); 
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+    }
+    100% { 
+        transform: translateY(0) rotate(0deg); 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.note-preview:hover::after {
+    transform: translateZ(40px) scale(1.2);
+    opacity: 1;
+}
+
+/* Styles for different Pokemon */
+.note-card.pikachu {
+    border-color: var(--pikachu-color);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--pikachu-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.pikachu::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png');
+}
+
+.note-card.bulbasaur {
+    border-color: var(--bulbasaur-color);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--bulbasaur-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.bulbasaur::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png');
+}
+
+.note-card.charmander {
+    border-color: var(--charmander-color);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--charmander-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.charmander::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png');
+}
+
+.note-card.squirtle {
+    border-color: var(--squirtle-color);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--squirtle-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.squirtle::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png');
+}
+
+.note-card.jigglypuff {
+    border-color: var(--jigglypuff-light);
+    background-image: 
+        linear-gradient(to bottom right, 
+            var(--jigglypuff-bg), 
+            var(--card-bg) 80%);
+}
+
+.note-card.jigglypuff::after {
+    background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png');
+}
+
+/* Custom glow colors for each Pokemon type */
+.note-card.pikachu::before {
+    background: radial-gradient(circle at var(--glow-x) var(--glow-y), 
+                rgba(247, 208, 44, 0.2) 0%, 
+                rgba(255, 255, 255, 0) 70%);
+}
+
+.note-card.bulbasaur::before {
+    background: radial-gradient(circle at var(--glow-x) var(--glow-y), 
+                rgba(122, 199, 76, 0.2) 0%, 
+                rgba(255, 255, 255, 0) 70%);
+}
+
+.note-card.charmander::before {
+    background: radial-gradient(circle at var(--glow-x) var(--glow-y), 
+                rgba(238, 129, 48, 0.2) 0%, 
+                rgba(255, 255, 255, 0) 70%);
+}
+
+.note-card.squirtle::before {
+    background: radial-gradient(circle at var(--glow-x) var(--glow-y), 
+                rgba(99, 144, 240, 0.2) 0%, 
+                rgba(255, 255, 255, 0) 70%);
+}
+
+.note-card.jigglypuff::before {
+    background: radial-gradient(circle at var(--glow-x) var(--glow-y), 
+                rgba(253, 184, 233, 0.2) 0%, 
+                rgba(255, 255, 255, 0) 70%);
+}
+
+/* Enhanced Pokemon picker with larger icons but still compact layout */
+.pokemon-picker {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 4px;
+    margin-bottom: 2px;
+}
+
+.pokemon-option {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--card-border);
+    overflow: hidden;
+    flex: 0 0 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pokemon-option:hover::before {
+    opacity: 0.4;
+}
+
+.pokemon-option img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.pokemon-option:hover img {
+    transform: scale(1.15);
+}
+
+.pokemon-option.selected img {
+    transform: scale(1.1);
+}
+
+/* Pokemon option hover effects - enhanced */
+.pokemon-option[data-color="pikachu"]:hover {
+    box-shadow: 0 0 15px var(--pikachu-light);
+    border-color: var(--pikachu-color);
+    transform: translateY(-3px);
+}
+
+.pokemon-option[data-color="bulbasaur"]:hover {
+    box-shadow: 0 0 15px var(--bulbasaur-light);
+    border-color: var(--bulbasaur-color);
+    transform: translateY(-3px);
+}
+
+.pokemon-option[data-color="charmander"]:hover {
+    box-shadow: 0 0 15px var(--charmander-light);
+    border-color: var(--charmander-color);
+    transform: translateY(-3px);
+}
+
+.pokemon-option[data-color="squirtle"]:hover {
+    box-shadow: 0 0 15px var(--squirtle-light);
+    border-color: var(--squirtle-color);
+    transform: translateY(-3px);
+}
+
+.pokemon-option[data-color="jigglypuff"]:hover {
+    box-shadow: 0 0 15px var(--jigglypuff-light);
+    border-color: var(--jigglypuff-light);
+    transform: translateY(-3px);
+}
+
+/* Pokemon option selected states - enhanced but more compact */
+.pokemon-option[data-color="pikachu"].selected {
+    border-color: var(--pikachu-color);
+    box-shadow: 0 0 15px var(--pikachu-light);
+    transform: scale(1.08); /* Reduced from 1.1 to be more subtle */
+    background-color: rgba(247, 208, 44, 0.1);
+}
+
+.pokemon-option[data-color="bulbasaur"].selected {
+    border-color: var(--bulbasaur-color);
+    box-shadow: 0 0 15px var(--bulbasaur-light);
+    transform: scale(1.08); /* Reduced from 1.1 to be more subtle */
+    background-color: rgba(122, 199, 76, 0.1);
+}
+
+.pokemon-option[data-color="charmander"].selected {
+    border-color: var(--charmander-color);
+    box-shadow: 0 0 15px var(--charmander-light);
+    transform: scale(1.08); /* Reduced from 1.1 to be more subtle */
+    background-color: rgba(238, 129, 48, 0.1);
+}
+
+.pokemon-option[data-color="squirtle"].selected {
+    border-color: var(--squirtle-color);
+    box-shadow: 0 0 15px var(--squirtle-light);
+    transform: scale(1.08); /* Reduced from 1.1 to be more subtle */
+    background-color: rgba(99, 144, 240, 0.1);
+}
+
+.pokemon-option[data-color="jigglypuff"].selected {
+    border-color: var(--jigglypuff-light);
+    box-shadow: 0 0 15px var(--jigglypuff-light);
+    transform: scale(1.08); /* Reduced from 1.1 to be more subtle */
+    background-color: rgba(253, 184, 233, 0.1);
+}
+
+/* More compact hop animation */
+@keyframes pokemon-hop {
+    0% { transform: translateY(0) scale(1.08); }
+    30% { transform: translateY(-8px) scale(1.12); } /* Reduced from -12px */
+    50% { transform: translateY(-6px) scale(1.15); } /* Reduced from -10px */
+    70% { transform: translateY(-5px) scale(1.12); } /* Reduced from -8px */
+    100% { transform: translateY(0) scale(1.08); }
+}
+
+.pokemon-option.pokemon-hop {
+    animation: pokemon-hop 0.6s ease-in-out;
+    z-index: 10;
+}
+
+/* Animation Keyframes */
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optimize form layout for better spacing */
+#note-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-xs);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.9rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    align-items: start;
+}
+
+/* Mobile responsiveness for modal */
+@media (max-width: 768px) {
+    .modal {
+        padding: var(--space-sm);
+        align-items: flex-end;
+    }
+    
+    .modal-content {
+        max-width: 100%;
+        border-radius: 1.5rem 1.5rem 0 0;
+        padding: var(--space-md);
+        max-height: 85vh;
+        animation: slideUpMobile 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .modal-header {
+        margin-bottom: var(--space-md);
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-sm);
+    }
+    
+    input, select, textarea {
+        padding: 0.85rem;
+        font-size: 16px; /* Prevent zoom on mobile devices */
+    }
+    
+    textarea {
+        min-height: 80px;
+    }
+    
+    .pokemon-picker {
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .pokemon-option {
+        width: 40px;
+        height: 40px;
+        margin-right: 0;
+    }
+    
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: var(--space-md);
+    }
+    
+    .form-actions button {
+        width: 100%;
+    }
+    
+    @keyframes slideUpMobile {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+/* Fix for modal backdrop */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Prevent content shift when modal opens */
+.modal-open .app-content {
+    filter: blur(3px);
+    transition: filter 0.3s ease;
+    pointer-events: none;
+}
+
+/* Custom scrollbar for textarea */
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: var(--primary-color-light);
+    border-radius: 4px;
+}
+
+/* Button loading state */
+.btn.loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.btn.loading .btn-text {
+    visibility: hidden;
+}
+
+.btn.loading::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+    box-sizing: border-box;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Add flip animation for note updates */
+@keyframes flip {
+    0% {
+        transform: scale(1) rotateY(0deg);
+        box-shadow: var(--shadow);
+    }
+    50% {
+        transform: scale(1.02) rotateY(5deg);
+        box-shadow: var(--shadow-hover);
+    }
+    100% {
+        transform: scale(1) rotateY(0deg);
+        box-shadow: var(--shadow);
+    }
+}
+
+.note-card.flip {
+    animation: flip 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: center center;
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Update particle effect styles */
+.update-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    z-index: 10;
+    pointer-events: none;
+    animation: particle-fade 0.8s ease-out forwards;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes particle-fade {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-40px) scale(1);
+        opacity: 0;
+    }
+} 
